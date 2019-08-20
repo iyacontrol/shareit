@@ -31,8 +31,8 @@ type CronHpa struct {
 // CronHpaSpec is the spec for a CronHpa resource
 type CronHpaSpec struct {
 	HpaName  string `json:"hpa_name"`
-	// Min      int32  `json:"min"`
-	// Max      int32  `json:"max"`
+	Min      int32  `json:"min"`
+	Max      int32  `json:"max"`
 	Capacity int32  `json:"capacity"`
 	Up       string `json:"up"`
 	Down     string `json:"down"`
