@@ -28,14 +28,16 @@ type CronHpa struct {
 	Spec CronHpaSpec `json:"spec"`
 }
 
+// Expression is the struct of cron and capacity
+type Expression struct {
+	Cron     string `json:"cron"`
+	Capacity int32  `json:"capacity"`
+}
+
 // CronHpaSpec is the spec for a CronHpa resource
 type CronHpaSpec struct {
-	HpaName  string `json:"hpa_name"`
-	Min      int32  `json:"min"`
-	Max      int32  `json:"max"`
-	Capacity int32  `json:"capacity"`
-	Up       string `json:"up"`
-	Down     string `json:"down"`
+	HpaName     string       `json:"hpa_name"`
+	Expressions []Expression `json:"expressions"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
