@@ -34,10 +34,16 @@ type Expression struct {
 	Capacity int32  `json:"capacity"`
 }
 
+// Cycle is the struct for start and end
+type Cycle struct {
+	Start Expression `json:"start"`
+	End   Expression `json:"end"`
+}
+
 // CronHpaSpec is the spec for a CronHpa resource
 type CronHpaSpec struct {
-	HpaName     string       `json:"hpa_name"`
-	Expressions []Expression `json:"expressions"`
+	HpaName string  `json:"hpa_name"`
+	Cycles  []Cycle `json:"cycles"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
