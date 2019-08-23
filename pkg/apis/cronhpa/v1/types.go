@@ -28,16 +28,10 @@ type CronHpa struct {
 	Spec CronHpaSpec `json:"spec"`
 }
 
-// Expression is the struct of cron and capacity
-type Expression struct {
+// Cycle is the struct of hour and capacity
+type Cycle struct {
 	Hour     int32 `json:"hour"`
 	Capacity int32 `json:"capacity"`
-}
-
-// Cycle is the struct for start and end
-type Cycle struct {
-	Start Expression `json:"start"`
-	End   Expression `json:"end"`
 }
 
 // CronHpaSpec is the spec for a CronHpa resource
