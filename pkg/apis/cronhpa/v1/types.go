@@ -30,7 +30,7 @@ type CronHpa struct {
 
 // Expression is the struct of cron and capacity
 type Expression struct {
-	Hour     int32 `json:"cron"`
+	Hour     int32 `json:"hour"`
 	Capacity int32 `json:"capacity"`
 }
 
