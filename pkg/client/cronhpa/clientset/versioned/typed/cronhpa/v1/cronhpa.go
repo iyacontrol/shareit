@@ -38,6 +38,7 @@ type CronHpasGetter interface {
 type CronHpaInterface interface {
 	Create(*v1.CronHpa) (*v1.CronHpa, error)
 	Update(*v1.CronHpa) (*v1.CronHpa, error)
+	UpdateStatus(*v1.CronHpa) (*v1.CronHpa, error)
 	Delete(name string, options *metav1.DeleteOptions) error
 	DeleteCollection(options *metav1.DeleteOptions, listOptions metav1.ListOptions) error
 	Get(name string, options metav1.GetOptions) (*v1.CronHpa, error)
@@ -125,6 +126,22 @@ func (c *cronHpas) Update(cronHpa *v1.CronHpa) (result *v1.CronHpa, err error) {
 		Namespace(c.ns).
 		Resource("cronhpas").
 		Name(cronHpa.Name).
+		Body(cronHpa).
+		Do().
+		Into(result)
+	return
+}
+
+// UpdateStatus was generated because the type contains a Status member.
+// Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
+
+func (c *cronHpas) UpdateStatus(cronHpa *v1.CronHpa) (result *v1.CronHpa, err error) {
+	result = &v1.CronHpa{}
+	err = c.client.Put().
+		Namespace(c.ns).
+		Resource("cronhpas").
+		Name(cronHpa.Name).
+		SubResource("status").
 		Body(cronHpa).
 		Do().
 		Into(result)

@@ -25,7 +25,8 @@ type CronHpa struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec CronHpaSpec `json:"spec"`
+	Spec   CronHpaSpec   `json:"spec"`
+	Status CronHpaStatus `json:"status,omitempty"`
 }
 
 // Cycle is the struct of hour and capacity
@@ -38,6 +39,11 @@ type Cycle struct {
 type CronHpaSpec struct {
 	HpaName string  `json:"hpa_name"`
 	Cycles  []Cycle `json:"cycles"`
+}
+
+// CronHpaStatus is the status for a CronHpa resource
+type CronHpaStatus struct {
+	Cycles []Cycle `json:"cycles"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
