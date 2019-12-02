@@ -38,5 +38,11 @@ ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
   --output-base "$(dirname ${BASH_SOURCE})/../../../.." \
   --go-header-file ${SCRIPT_ROOT}/hack/boilerplate.go.txt
 
+${CODEGEN_PKG}/generate-groups.sh "deepcopy,client,informer,lister" \
+  github.com/iyacontrol/shareit/pkg/client/confighpa github.com/iyacontrol/shareit/pkg/apis \
+  confighpa:v1beta1 \
+  --output-base "$(dirname ${BASH_SOURCE})/../../../.." \
+  --go-header-file ${SCRIPT_ROOT}/hack/boilerplate.go.txt
+
 # To use your own boilerplate text use:
 #   --go-header-file ${SCRIPT_ROOT}/hack/custom-boilerplate.go.txt
