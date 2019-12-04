@@ -20,7 +20,7 @@ func (chpa_spec ConfigHpaSpec) String() string {
 		chpa_spec.DownscaleForbiddenWindowSeconds,
 		chpa_spec.UpscaleForbiddenWindowSeconds,
 		chpa_spec.ScaleUpLimitFactor,
-		chpa_spec.ScaleUpLimitMinimum,
+		chpa_spec.ScaleDownLimitFactor,
 		chpa_spec.Tolerance,
 		minReplicas,
 		chpa_spec.MaxReplicas,

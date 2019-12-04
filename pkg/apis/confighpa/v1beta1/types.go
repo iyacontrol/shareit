@@ -25,7 +25,7 @@ type ConfigHpaSpec struct {
 	// See the comment about this parameter above
 	ScaleUpLimitFactor float64 `json:"scaleUpLimitFactor,omitempty"`
 	// See the comment about this parameter above
-	ScaleUpLimitMinimum int32   `json:"scaleUpLimitMinimum,omitempty"`
+	ScaleDownLimitFactor float64 `json:"scaleUpLimitFactor,omitempty"`
 	Tolerance           float64 `json:"tolerance,omitempty"`
 
 	// part of HorizontalPodAutoscalerSpec, see comments in the k8s-1.10.8 repo: staging/src/k8s.io/api/autoscaling/v1/types.go
