@@ -17,6 +17,11 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+const (
+	HpaTypeForNative  = "native"
+	HpaTypeForConfig  = "config"
+)
+
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
@@ -38,6 +43,7 @@ type Cycle struct {
 // CronHpaSpec is the spec for a CronHpa resource
 type CronHpaSpec struct {
 	HpaName string  `json:"hpa_name"`
+	HpaType string  `json:"hpa_type"`
 	Cycles  []Cycle `json:"cycles"`
 }
 
